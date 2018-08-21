@@ -90,9 +90,20 @@ var App = React.createClass({
     // Function to select a person based on the first letter(s) of the first name
     play: function(prefix) {
         prefix = prefix || '';
-        // Filter out names which do not match the given prefix, shuffle the remaining names,
-		// and take the first five people
+        // Filter out names which do not have a headshot, then those that do not match the given prefix, 
+		// shuffle the remaining names, and take the first five people
         var rand = _(people)
+					    .filter(function(p) {
+							var no_headshot = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "rebekkah-brown", "roger-casey", "scott-wolfson"];
+							if (no_headshot.includes(p.slug))
+							{
+								return false;
+							}
+							else
+							{
+								return true;
+							}
+						})
                         .filter(function(p) {
                             var reg = new RegExp('^'+prefix, 'i');
                             return reg.test(p.firstName);
@@ -113,9 +124,20 @@ var App = React.createClass({
 	// Function to select a person based on the last letter of the last name
     play_suffix: function(suffix) {
         suffix = suffix || '';
-        // Filter out names which do not match the given suffix, shuffle the remaining names,
-		// and take the first five people
+        // Filter out names which do not have a headshot, then those that do not match the given suffix, 
+		// shuffle the remaining names, and take the first five people
         var rand = _(people)
+						.filter(function(p) {
+							var no_headshot = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "rebekkah-brown", "roger-casey", "scott-wolfson"];
+							if (no_headshot.includes(p.slug))
+							{
+								return false;
+							}
+							else
+							{
+								return true;
+							}
+						})
                         .filter(function(p) {
                             var reg = new RegExp(suffix+'$', 'i');
                             return reg.test(p.lastName);
@@ -133,34 +155,6 @@ var App = React.createClass({
         this.setState({ people: rand });
 		},
 		
-	// Function to filter out the three people without headshots:
-    headshot_filter: function() {
-        // Filter out names which do not have headshots, shuffle the remaining names,
-		// and take the first five people
-        var rand = _(people)
-                        .filter(function(p) {
-						    var no_headshot = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "rebekkah-brown", "roger-casey", "scott-wolfson"];
-							if (no_headshot.includes(p.slug))
-							{
-								return false;
-							}
-							else
-							{
-								return true;
-							}
-                        })
-                        .each(function(p) {
-                            p.selected = false;
-                        })
-                        .shuffle()
-                        .first(5)
-                        .value();
-        // Set the first of these five to be the employee the user is prompted to identify
-        rand[0].selected = true;
-        rand = _.shuffle(rand);
-
-        this.setState({ people: rand });
-    },
 	// Render the buttons and, if a button has been clicked, render the faces
     render: function() {
         var game;
