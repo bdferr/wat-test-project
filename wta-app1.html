@@ -139,8 +139,8 @@ var App = React.createClass({
 		// and take the first five people
         var rand = _(people)
                         .filter(function(p) {
-							if (p.slug == "andrew-morgan" || p.slug == "bryant" || p.slug == "jack-ross" || p.slug == "daniel-willowtree"
-							||p.slug == "rebekkah-brown" || p.slug == "roger-casey" || p.slug == "scott-wolfson")
+						    var no_headshot = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "rebekkah-brown", "roger-casey", "scott-wolfson"];
+							if (no_headshot.includes(p.slug))
 							{
 								return false;
 							}
