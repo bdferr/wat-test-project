@@ -170,8 +170,6 @@ var App = React.createClass({
                 <div onClick={_.partial(this.play, 'matt')}> <button type="button">Matt(hew)</button> </div>
 				<div onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name Ending with N</button> </div>
 				<div onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name Ending with S</button> </div>
-			    <div onClick={_.partial(this.headshot_filter)}> <button type="button">Only People with Headshots</button> </div>
-								
                 {game}
             </div>
         );
