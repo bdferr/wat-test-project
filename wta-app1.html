@@ -91,19 +91,16 @@ var App = React.createClass({
     play: function(prefix) {
         prefix = prefix || '';
         // Filter out names which do not have a headshot or are duplicates, 
-		// then those that do not match the given prefix, 
+		// then those that are not currently employed at WillowTree (as of the creation of the API at least),
+		// then those that do not match the given prefix, if any,
 		// shuffle the remaining names, and take the first five people
         var rand = _(people)
 					    .filter(function(p) {
 							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", "michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
-							if (excluded.includes(p.slug))
-							{
-								return false;
-							}
-							else
-							{
-								return true;
-							}
+							return !excluded.includes(p.slug);
+						})
+						.filter(function(p) {
+						    return typeof p.jobTitle != "undefined";
 						})
                         .filter(function(p) {
                             var reg = new RegExp('^'+prefix, 'i');
@@ -126,19 +123,16 @@ var App = React.createClass({
     play_suffix: function(suffix) {
         suffix = suffix || '';
         // Filter out names which do not have a headshot or are duplicates, 
-		// then those that do not match the given suffix, 
+		// then those that are not currently employed at WillowTree (as of the creation of the API at least),
+		// then those that do not match the given suffix, if any, 
 		// shuffle the remaining names, and take the first five people
         var rand = _(people)
 						.filter(function(p) {
 							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", "michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
-							if (excluded.includes(p.slug))
-							{
-								return false;
-							}
-							else
-							{
-								return true;
-							}
+							return !excluded.includes(p.slug);
+						})
+						.filter(function(p) {
+						    return typeof p.jobTitle != "undefined";
 						})
                         .filter(function(p) {
                             var reg = new RegExp(suffix+'$', 'i');
