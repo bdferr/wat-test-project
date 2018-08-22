@@ -151,6 +151,48 @@ var App = React.createClass({
         this.setState({ people: rand });
 		},
 		
+		// Function to select only women
+        only_women: function(prefix) {
+        prefix = prefix || '';
+        // Filter out names which do not have a headshot or are duplicates, 
+		// then filter out all the men,
+		// then those that are not currently employed at WillowTree (as of the creation of the API at least),
+		// then those that do not match the given prefix, if any,
+		// shuffle the remaining names, and take the first five people
+        var rand = _(people)
+					    .filter(function(p) {
+							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", "michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
+							return !excluded.includes(p.slug);
+						})
+						.filter(function(p) {
+						var women = ["abby-cook", "pizzimenti", "midland", "welk", "connor", "degroof", "angela-batten", 
+						"anne-fry", "ashley-joost", "ayesha-zafar", "bijal-patel", "caroline-hompe", "cassandra-sharpe", 
+						"charlotte-dewolfe", "chloe-norris", "christine-bryant-ryback", "christy-phillips", "meyers", 
+						"dayne-mauney", "rundell", "elizabeth-batman", "emily-seibert", "erika-cober", "heather-raines", 
+						"hillary-pitts", "julia-swenson", "karen-wei", "kendra-schmid", "schmid", "mahreen-azam", "bulka", 
+						"meghan-macera", "seibert", "morgan-edmonds", "rebekkah-brown", "soo rin-park", "tatyana-casino", 
+						"tesceline-tabilas", "wickenkamp", "whitney-french"];
+						return women.includes(p.slug);
+						})
+						.filter(function(p) {
+						    return typeof p.jobTitle != "undefined";
+						})
+                        .filter(function(p) {
+                            var reg = new RegExp('^'+prefix, 'i');
+                            return reg.test(p.firstName);
+                        })
+                        .each(function(p) {
+                            p.selected = false;
+                        })
+                        .shuffle()
+                        .first(5)
+                        .value();
+        // Set the first of these five to be the employee the user is asked to identify
+        rand[0].selected = true;
+        rand = _.shuffle(rand);
+
+        this.setState({ people: rand });
+    },
 	// Render the buttons and, if a button has been clicked, render the faces
     render: function() {
         var game;
@@ -166,6 +208,7 @@ var App = React.createClass({
                 <div onClick={_.partial(this.play, 'matt')}> <button type="button">Matt(hew)</button> </div>
 				<div onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name Ending with N</button> </div>
 				<div onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name Ending with S</button> </div>
+				<div onClick={_.partial(this.only_women)}> <button type="button">Only Women</button> </div>
                 {game}
             </div>
         );
