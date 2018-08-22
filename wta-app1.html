@@ -197,7 +197,7 @@ var App = React.createClass({
         // Filter out all those that do not match the given prefix, if any,
 		//then filter out all the women, 
 		// then those that are not currently employed at WillowTree (as of the creation of the API at least),
-		// then names which do not have a headshot or are duplicates, 
+		// then men which do not have a headshot or are duplicates, 
 		// shuffle the remaining names, and take the first five people
         var rand = _(people)
 						.filter(function(p) {
@@ -218,8 +218,8 @@ var App = React.createClass({
 						    return typeof p.jobTitle != "undefined";
 						})
 					    .filter(function(p) {
-							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
-							"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
+							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", 
+							"michael-ross", "roger-casey", "scott-wolfson"];
 							return !excluded.includes(p.slug);
 						})
                         .each(function(p) {
