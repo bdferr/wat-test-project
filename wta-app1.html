@@ -96,14 +96,7 @@ var App = React.createClass({
         var rand = _(people)
 					    .filter(function(p) {
 							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", "michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
-							if (excluded.includes(p.slug))
-							{
-								return false;
-							}
-							else
-							{
-								return true;
-							}
+							return !excluded.includes(p.slug);
 						})
                         .filter(function(p) {
                             var reg = new RegExp('^'+prefix, 'i');
@@ -131,14 +124,7 @@ var App = React.createClass({
         var rand = _(people)
 						.filter(function(p) {
 							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", "michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
-							if (excluded.includes(p.slug))
-							{
-								return false;
-							}
-							else
-							{
-								return true;
-							}
+							return !excluded.includes(p.slug);
 						})
                         .filter(function(p) {
                             var reg = new RegExp(suffix+'$', 'i');
