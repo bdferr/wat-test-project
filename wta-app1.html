@@ -157,9 +157,8 @@ var App = React.createClass({
         only_women: function(prefix) {
         prefix = prefix || '';
         // Filter out all those that do not match the given prefix, if any,
-		//then filter out all the men, 
+		// then filter out all the men, along with the women who are duplicates or have no headshot, 
 		// then those that are not currently employed at WillowTree (as of the creation of the API at least),
-		// then names which do not have a headshot or are duplicates, 
 		// shuffle the remaining names, and take the first five people
         var rand = _(people)
 		                .filter(function(p) {
@@ -171,19 +170,14 @@ var App = React.createClass({
 						"anne-fry", "ashley-joost", "ayesha-zafar", "bijal-patel", "caroline-hompe", "cassandra-sharpe", 
 						"charlotte-de wolfe", "chloe-norris", "christine-bryant-ryback", "christy-phillips", "meyers", 
 						"dayne-mauney", "rundell", "elizabeth-batman", "emily-seibert", "erika-cober", "heather-raines", 
-						"hillary-pitts", "julia-swenson", "karen-wei", "kendra-schmid", "schmid", "mahreen-azam", "bulka", 
-						"meghan-macera", "seibert", "morgan-edmonds", "rebekkah-brown", "soo rin-park", "tatyana-casino", 
+						"hillary-pitts", "julia-swenson", "karen-wei", "schmid", "mahreen-azam", "bulka", 
+						"meghan-macera", "seibert", "morgan-edmonds", "soo rin-park", "tatyana-casino", 
 						"tesceline-tabilas", "wickenkamp", "whitney-french"];
 						return women.includes(p.slug);
 						})
 						.filter(function(p) {
 						    return typeof p.jobTitle != "undefined";
 						})
-						.filter(function(p) {
-							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
-							"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
-							return !excluded.includes(p.slug);
-					    })
                         .each(function(p) {
                             p.selected = false;
                         })
