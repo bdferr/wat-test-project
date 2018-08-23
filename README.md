@@ -11,16 +11,20 @@ Present the user with five faces and ask them to identify the listed name. This 
 3. Reverse mode. Show five names with one picture.
 4. Keyboard shortcuts. Power users love keyboard shortcuts; maybe add numbers for faces for mouse free fun.
 5. Local scoring. The server might not accept scores, but you can always track it locally. Make metrics of your own and have a leader board!
-6. Matt Mode. Roughly 90% of our co-workers are named Matt, so add a challenge mode where you only present the users with a Matt.
+6. Matt Mode. Roughly 90% of our co-workers are named Matt, so add a challenge mode where you only present the users with a Matt. **This was already done.**
 7. Hint mode. As people wait, faces disappear until only the correct one is left.
 
 My own ideas, already implemented, are here:
+
 8. Sort people by the last letter of their last names.
+
 9. Exclude the people who either have no profile pictures or have only a generic WillowTree logo as a picture.
+
 10. Exclude duplicates.
+
 11. Select only women or only men.
-Not  yet implemented:
-12. Choose a name at random, but only provide men's pictures to choose from if it is a man, and women's if it is a woman.
+
+12. Choose a set of either all women or all men; a coin toss will make both equally likely.
 
 ## Option 2
 
