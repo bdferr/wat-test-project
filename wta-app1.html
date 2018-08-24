@@ -4,12 +4,13 @@
 <head>
 	<title>WillowTree Name Game</title>
 	<meta charset="utf-8">
-	<meta name="description" content="The WillowTree name game app is a test for potential employees of WillowTree." />
-	<meta name="description" content="Last modified 8/21/2018" />
+	<meta name="description" content="The WillowTree name game app is a test for potential employees of WillowTree. This is my own version of it." />
+	<meta name="description" content="Last modified 8/23/2018" />
 	<meta name="author" content="Brendan Ferreri-Hanberry" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
-	<link href="https://wta-namegame.herokuapp.com/styles.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="/styles/wta-namegame-styles.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link rel="icon" href="favicon-best.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -99,7 +100,7 @@ var App = React.createClass({
                             var reg = new RegExp('^'+prefix, 'i');
                             return reg.test(p.firstName);
                         })
-						filter(function(p) {
+						.filter(function(p) {
 						    return typeof p.jobTitle != "undefined";
 						})
 						.filter(function(p) {
@@ -256,15 +257,14 @@ var App = React.createClass({
 
         return (
             <div>
-                <div onClick={this.play}> <button type="button">Random Name</button> </div>
-    			<div onClick={_.partial(this.play, 'j')}> <button type="button">Name Starting with J</button> </div>
-	            <div onClick={_.partial(this.play, 'm')}> <button type="button">Name Starting with M</button> </div>
+                <div onClick={this.single_gender}> <button type="button">Random Name</button> </div>
+    			<div onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Name Starting with A</button> </div>  
+				<div onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Name Starting with M</button> </div>
                 <div onClick={_.partial(this.play, 'matt')}> <button type="button">Matt(hew)</button> </div>
 				<div onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name Ending with N</button> </div>
 				<div onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name Ending with S</button> </div>
 				<div onClick={_.partial(this.only_women)}> <button type="button">Only Women</button> </div>
 			    <div onClick={_.partial(this.only_men)}> <button type="button">Only Men</button> </div>
-			    <div onClick={_.partial(this.single_gender)}> <button type="button">Same Gender</button> </div>
                 {game}
             </div>
         );
