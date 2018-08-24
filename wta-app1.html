@@ -257,6 +257,7 @@ var App = React.createClass({
 
         return (
             <div>
+    			<div ><h1 id="page-heading" className="page-heading">WillowTree Name Game</h1></div>
                 <div onClick={this.single_gender}> <button type="button">Random Name</button> </div>
     			<div onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Name Starting with A</button> </div>  
 				<div onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Name Starting with M</button> </div>
