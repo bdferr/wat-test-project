@@ -9,6 +9,12 @@
 	<meta name="author" content="Brendan Ferreri-Hanberry" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+    <!-- Libs -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/react-with-addons.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/JSXTransformer.js"></script>
+	
 	<link href="/styles/wta-namegame-styles.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link rel="icon" href="favicon-best.ico" type="image/x-icon" />
 </head>
@@ -20,11 +26,8 @@
     <div id="face-wrapper"></div>
 </div>
 
-<!-- Libs -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/react-with-addons.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.9.0/JSXTransformer.js"></script>
+
+
 
 <!-- Logic -->
 <script type="text/jsx">
@@ -257,14 +260,16 @@ var App = React.createClass({
 
         return (
             <div>
+    			<div ><h1 id="page-heading" >WillowTree Name Game</h1></div>
                 <div onClick={this.single_gender}> <button type="button">Random Name</button> </div>
-    			<div onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Name Starting with A</button> </div>  
-				<div onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Name Starting with M</button> </div>
+    			<div className="inline-button" onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Name Starting with A</button> </div>  
+				<div className="inline-button" onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Name Starting with M</button> </div>
                 <div onClick={_.partial(this.play, 'matt')}> <button type="button">Matt(hew)</button> </div>
-				<div onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name Ending with N</button> </div>
-				<div onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name Ending with S</button> </div>
-				<div onClick={_.partial(this.only_women)}> <button type="button">Only Women</button> </div>
-			    <div onClick={_.partial(this.only_men)}> <button type="button">Only Men</button> </div>
+				<div className="inline-button" onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name Ending with N</button> </div>
+				<div className="inline-button" onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name Ending with S</button> </div>
+				<br />
+				<div className="inline-button" onClick={_.partial(this.only_women)}> <button type="button">Only Women</button> </div>
+			    <div className="inline-button" onClick={_.partial(this.only_men)}> <button type="button">Only Men</button> </div>
                 {game}
             </div>
         );
