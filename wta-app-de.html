@@ -1,8 +1,8 @@
 
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="de">
 <head>
-	<title>WillowTree Name Game</title>
+	<title>WillowTree Namenspiel</title>
 	<meta charset="utf-8">
 	<meta name="description" content="The WillowTree name game app is a test for potential employees of WillowTree. This is my own version of it." />
 	<meta name="description" content="Last modified 8/26/2018" />
@@ -77,7 +77,7 @@ var Game = React.createClass({
 
         return (
             <div>
-                <h1 id="question-wrapper">Who is {selectedFace.firstName + ' ' + selectedFace.lastName}?</h1>
+                <h1 id="question-wrapper">Wer heißt {selectedFace.firstName + ' ' + selectedFace.lastName}?</h1>
                 <div>{faces}</div>
             </div>
         );
@@ -260,18 +260,18 @@ var App = React.createClass({
 
         return (
             <div>
-    			<div ><h1 id="page-heading" >WillowTree Name Game</h1></div>
-                <div className="inline-button" onClick={this.single_gender}> <button type="button">Random Name</button> </div>
-				<div className="right-button"> <a href="wta-app-de.html"><button type="button">Deutsch</button></a> </div>
+    			<div ><h1 id="page-heading" >Namenspiel von WillowTree</h1></div>
+                <div className="inline-button" onClick={this.single_gender}> <button type="button">Zufälliger Name</button> </div>
+				<div className="right-button"> <a href="wta-app1.html"><button type="button">English</button></a> </div>
 				<br />
-    			<div className="inline-button clear" onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Name Starting with A</button> </div>  
-				<div className="inline-button" onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Name Starting with M</button> </div>
+    			<div className="inline-button clear" onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Mit A beginnender Name</button> </div>  
+				<div className="inline-button" onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Mit M beginnender Name</button> </div>
                 <div onClick={_.partial(this.play, 'matt')}> <button type="button">Matt(hew)</button> </div>
-				<div className="inline-button" onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name Ending with N</button> </div>
-				<div className="inline-button" onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name Ending with S</button> </div>
+				<div className="inline-button" onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name mit N am Ende</button> </div>
+				<div className="inline-button" onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name mit S am Ende</button> </div>
 				<br />
-				<div className="inline-button" onClick={_.partial(this.only_women)}> <button type="button">Only Women</button> </div>
-			    <div className="inline-button" onClick={_.partial(this.only_men)}> <button type="button">Only Men</button> </div>
+				<div className="inline-button" onClick={_.partial(this.only_women)}> <button type="button">Nur Frauen</button> </div>
+			    <div className="inline-button" onClick={_.partial(this.only_men)}> <button type="button">Nur Männer</button> </div>
                 {game}
             </div>
         );

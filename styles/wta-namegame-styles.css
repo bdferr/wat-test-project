@@ -10,10 +10,17 @@ body {
     padding: 20px;
 }
 
-div.inline-button {
-	display: inline;
+.inline-button {
+	display: inline !important;
 }
-
+.clear
+{
+	clear:both !important;
+}
+.right-button {
+    display:inline !important;
+	float:right !important;
+}
 #page-heading {
 	font-size: 38px;
 	text-align: center!important;
