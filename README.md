@@ -26,6 +26,8 @@ My own ideas, already implemented, are here:
 
 12. Choose a set of either all women or all men; a coin toss will make both equally likely.
 
+13. Create a German version and let the user switch back and forth between the two.
+
 ## Option 2
 
 Feel like taking the path less trodden? Do you know a better way to learn faces than to present five options and a name? Come up with your own memory game!
