@@ -19,8 +19,8 @@ My own ideas, already implemented, are here:
 9. Exclude the people who either have no profile pictures or have only a generic WillowTree logo as a picture.
 10. Exclude duplicates.
 11. Select only women or only men.
-Not  yet implemented:
 12. Choose a name at random, but only provide men's pictures to choose from if it is a man, and women's if it is a woman.
+13. Create a German version of the page and allow the user to switch back and forth between the two.
 
 ## Option 2
 
