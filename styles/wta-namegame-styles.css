@@ -18,7 +18,7 @@ button {
 #page-heading {
 	font-size: 38px;
 	text-align: center!important;
-	padding: 5px;
+	padding: 10px;
 }
 
 h1 {
@@ -110,7 +110,7 @@ h2 {
 
 #question-wrapper {
     text-align: center;
-    padding: 30px;
+    padding: 25px;
 }
 
 #question-wrapper h1 {
