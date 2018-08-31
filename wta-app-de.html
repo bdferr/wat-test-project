@@ -5,7 +5,7 @@
 	<title>Namenspiel von WillowTree</title>
 	<meta charset="utf-8">
 	<meta name="description" content="The WillowTree name game app is a test for potential employees of WillowTree. This is my own version of it." />
-	<meta name="description" content="Last modified 8/26/2018" />
+	<meta name="description" content="Last modified 8/31/2018" />
 	<meta name="author" content="Brendan Ferreri-Hanberry" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>-->
@@ -84,6 +84,10 @@ var Game = React.createClass({
         );
     }
 });
+// This is the set of people to be excluded who do not have a headshot or are duplicates
+var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
+					"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
+					
 // Initialize the app with an empty list of employees; this is empty until the user clicks a button
 var App = React.createClass({
     getInitialState: function() {
@@ -108,8 +112,6 @@ var App = React.createClass({
 						    return typeof p.jobTitle != "undefined";
 						})
 						.filter(function(p) {
-							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
-							"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
 							return !excluded.includes(p.slug);
 						})
                         .each(function(p) {
@@ -141,8 +143,6 @@ var App = React.createClass({
 						    return typeof p.jobTitle != "undefined";
 						})
 						.filter(function(p) {
-							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
-							"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
 							return !excluded.includes(p.slug);
 						})
                         .each(function(p) {
@@ -223,7 +223,7 @@ var App = React.createClass({
 						    return typeof p.jobTitle != "undefined";
 						})
 					    .filter(function(p) {
-							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", 
+							excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", 
 							"michael-ross", "roger-casey", "scott-wolfson"];
 							return !excluded.includes(p.slug);
 						})
