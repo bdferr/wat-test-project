@@ -84,6 +84,11 @@ var Game = React.createClass({
         );
     }
 });
+
+// This is the set of people to be excluded who do not have a headshot or are duplicates
+var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
+					"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
+
 // Initialize the app with an empty list of employees; this is empty until the user clicks a button
 var App = React.createClass({
     getInitialState: function() {
@@ -91,7 +96,7 @@ var App = React.createClass({
             people: []
         };
     },
-	
+			
     // Function to select a person based on the first letter(s) of the first name
     play: function(prefix) {
         prefix = prefix || '';
@@ -108,8 +113,6 @@ var App = React.createClass({
 						    return typeof p.jobTitle != "undefined";
 						})
 						.filter(function(p) {
-							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
-							"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
 							return !excluded.includes(p.slug);
 						})
                         .each(function(p) {
@@ -141,8 +144,6 @@ var App = React.createClass({
 						    return typeof p.jobTitle != "undefined";
 						})
 						.filter(function(p) {
-							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
-							"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
 							return !excluded.includes(p.slug);
 						})
                         .each(function(p) {
@@ -223,7 +224,7 @@ var App = React.createClass({
 						    return typeof p.jobTitle != "undefined";
 						})
 					    .filter(function(p) {
-							var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", 
+							excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", 
 							"michael-ross", "roger-casey", "scott-wolfson"];
 							return !excluded.includes(p.slug);
 						})
