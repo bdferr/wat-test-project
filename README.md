@@ -20,7 +20,7 @@ My own ideas, already implemented, are here:
 
 9. Exclude the people who either have no profile pictures or have only a generic WillowTree logo as a picture.
 
-10. Exclude duplicates.
+10. Exclude duplicates. 
 
 11. Select only women or only men.
 
