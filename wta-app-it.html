@@ -156,10 +156,10 @@ var App = React.createClass({
         rand = _.shuffle(rand);
 
         this.setState({ people: rand });
-		},
+	},
 		
-		// Function to select only women
-        only_women: function(prefix) {
+	// Function to select only women
+	only_women: function(prefix) {
         prefix = prefix || '';
         // Filter out all those that do not match the given prefix, if any,
 		// then filter out all the men, along with the women who are duplicates or have no headshot, 
@@ -196,8 +196,8 @@ var App = React.createClass({
         this.setState({ people: rand });
     },
 	
-	   // Function to select only men
-        only_men: function(prefix) {
+   // Function to select only men
+	only_men: function(prefix) {
         prefix = prefix || '';
         // Filter out all those that do not match the given prefix, if any,
 		//then filter out all the women, 
@@ -240,17 +240,17 @@ var App = React.createClass({
         this.setState({ people: rand });
     },
 	
-		// Function to provide only men's or only women's faces, based on a coin toss
-        single_gender: function(prefix) {
-            var cointoss = Math.floor(Math.random() * 2);
-		    if (cointoss == 1) {
-			    this.only_men(prefix);
-			}
-			else {
-			    this.only_women(prefix);
-			}
-			
-		},
+	// Function to provide only men's or only women's faces, based on a coin toss
+	single_gender: function(prefix) {
+		var cointoss = Math.floor(Math.random() * 2);
+		if (cointoss == 1) {
+			this.only_men(prefix);
+		}
+		else {
+			this.only_women(prefix);
+		}
+		
+	},
 	
 	// Render the buttons and, if a button has been clicked, render the faces
     render: function() {
@@ -262,8 +262,14 @@ var App = React.createClass({
         return (
             <div>
     			<div ><h1 id="page-heading" >Gioco a Nomi di WillowTree</h1></div>
-                <div className="inline-button" onClick={this.single_gender}> <button type="button">Nome Casuale</button> </div>
-				<div className="right-button"> <a href="wta-app1.html"><button type="button">English</button></a> </div>
+                <div className="inline-button" onClick={this.single_gender}> <button type="button">Nome casuale</button> </div>
+				<div className="right-button"> 
+					<ul>
+						<li><button><a href="wta-app-it.html">Italiano</a></button></li>
+						<li><button><a href="wta-app-de.html">Deutsch</a></button></li>
+						<li><button><a href="wta-app1.html">English</a></button></li>
+					</ul>
+				</div>
 				<br />
     			<div className="inline-button clear" onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Nome che inizia con A</button> </div>  
 				<div className="inline-button" onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Nome che inizia con M</button> </div>
@@ -271,8 +277,8 @@ var App = React.createClass({
 				<div className="inline-button" onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Nome che finisce con N</button> </div>
 				<div className="inline-button" onClick={_.partial(this.play_suffix, 's')}> <button type="button">Nome che finisce con S</button> </div>
 				<br />
-				<div className="inline-button" onClick={_.partial(this.only_women)}> <button type="button">Solo Donne</button> </div>
-			    <div className="inline-button" onClick={_.partial(this.only_men)}> <button type="button">Solo Uomini</button> </div>
+				<div className="inline-button" onClick={_.partial(this.only_women)}> <button type="button">Solo donne</button> </div>
+			    <div className="inline-button" onClick={_.partial(this.only_men)}> <button type="button">Solo uomini</button> </div>
                 {game}
             </div>
         );
