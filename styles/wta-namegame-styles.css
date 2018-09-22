@@ -16,6 +16,11 @@ button {
 	background-image: linear-gradient(green, lightgreen);
 	border-color: green;
 }
+
+a {
+	text-decoration: none !important;
+	color: black !important;
+}
 #page-heading {
 	font-size: 38px;
 	text-align: center!important;
