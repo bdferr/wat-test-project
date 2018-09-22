@@ -140,14 +140,14 @@ var App = React.createClass({
                             return reg.test(p.firstName);
                         })
 						.filter(function(p) {
-						var women = ["abby-cook", "pizzimenti", "midland", "welk", "carly-wilson", "christian", "connor", 
-						"degroof", "erwin", "angela-batten", "anne-fry", "ashley-joost", "ayesha-zafar", "bijal-patel", 
-						"caroline-hompe", "cassandra-sharpe", "charlotte-de wolfe", "chloe-norris", "christine-bryant-ryback", 
-						"christy-phillips", "meyers", "dayne-mauney", "rundell", "elizabeth-batman", "emily-seibert", 
-						"erika-cober", "heather-raines", "hillary-pitts", "julia-swenson", "karen-wei", "schmid", 
-						"mahreen-azam", "bulka", "meghan-macera", "seibert", "morgan-edmonds", "soo rin-park", "tatyana-casino", 
-						"tesceline-tabilas", "wickenkamp", "whitney-french"];
-						return women.includes(p.slug);
+							var women = ["abby-cook", "pizzimenti", "midland", "welk", "carly-wilson", "christian", "connor", 
+							"degroof", "erwin", "angela-batten", "anne-fry", "ashley-joost", "ayesha-zafar", "bijal-patel", 
+							"caroline-hompe", "cassandra-sharpe", "charlotte-de wolfe", "chloe-norris", "christine-bryant-ryback", 
+							"christy-phillips", "meyers", "dayne-mauney", "rundell", "elizabeth-batman", "emily-seibert", 
+							"erika-cober", "heather-raines", "hillary-pitts", "julia-swenson", "karen-wei", "schmid", 
+							"mahreen-azam", "bulka", "meghan-macera", "seibert", "morgan-edmonds", "soo rin-park", "tatyana-casino", 
+							"tesceline-tabilas", "wickenkamp", "whitney-french"];
+							return women.includes(p.slug);
 						})
 						.filter(function(p) {
 						    return typeof p.jobTitle != "undefined";
@@ -234,9 +234,9 @@ var App = React.createClass({
                 <div className="inline-button" onClick={this.single_gender}> <button type="button">Random Name</button> </div>
 				<div className="right-button"> 
 					<ul>
-						<li><button><a href="wta-app1.html" hreflang="en">English</a></button></li>
-						<li><button><a href="wta-app-de.html" hreflang="de">Deutsch</a></button></li>
-						<li><button><a href="wta-app-it.html" hreflang="it">Italiano</a></button></li>
+						<li><button><a href="wta-app1.html" hrefLang="en">English</a></button></li>
+						<li><button><a href="wta-app-de.html" hrefLang="de">Deutsch</a></button></li>
+						<li><button><a href="wta-app-it.html" hrefLang="it">Italiano</a></button></li>
 					</ul>
 				</div>
 				<br />
