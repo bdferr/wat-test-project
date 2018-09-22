@@ -262,7 +262,13 @@ var App = React.createClass({
             <div>
     			<div ><h1 id="page-heading" >WillowTree Name Game</h1></div>
                 <div className="inline-button" onClick={this.single_gender}> <button type="button">Random Name</button> </div>
-				<div className="right-button"> <a href="wta-app-de.html"><button type="button">Deutsch</button></a> </div>
+				<div className="right-button"> 
+					<ul>
+						<li><button><a href="wta-app1.html">English</a></button></li>
+						<li><button><a href="wta-app-de.html">Deutsch</a></button></li>
+						<li><button><a href="wta-app-it.html">Italiano</a></button></li>
+					</ul>
+				</div>
 				<br />
     			<div className="inline-button clear" onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Name Starting with A</button> </div>  
 				<div className="inline-button" onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Name Starting with M</button> </div>
