@@ -16,6 +16,11 @@ button {
 	background-image: linear-gradient(green, lightgreen);
 	border-color: green;
 }
+
+a {
+	text-decoration: none !important;
+	color: black !important;
+}
 #page-heading {
 	font-size: 38px;
 	text-align: center!important;
@@ -25,17 +30,20 @@ button {
 h1 {
     font-size: 32px;
 	background-image: linear-gradient(green, lightgreen);
-	}
+}
 
 h2 {
     font-size: 24px;
     padding: 0;
     margin: 0;
-
 }
 
-.clear
-{
+ul {
+	list-style-type: none !important;
+	padding-inline-start: 0px;
+}
+
+.clear {
 	clear:both !important;
 }
 
