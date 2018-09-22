@@ -96,38 +96,7 @@ var App = React.createClass({
         };
     },
 			
-    // Function to select a person based on the first letter(s) of the first name
-    play: function(prefix) {
-        prefix = prefix || '';
-        // Filter out names which do not match the given prefix, if any,
-		// then those that are not currently employed at WillowTree (as of the creation of the API at least),
-		// then those who do not have a headshot, 
-		// shuffle the remaining names, and take the first five people
-        var rand = _(people)
-					    .filter(function(p) {
-                            var reg = new RegExp('^'+prefix, 'i');
-                            return reg.test(p.firstName);
-                        })
-						.filter(function(p) {
-						    return typeof p.jobTitle != "undefined";
-						})
-						.filter(function(p) {
-							return !excluded.includes(p.slug);
-						})
-                        .each(function(p) {
-                            p.selected = false;
-                        })
-                        .shuffle()
-                        .first(5)
-                        .value();
-        // Set the first of these five to be the employee the user is asked to identify
-        rand[0].selected = true;
-        rand = _.shuffle(rand);
-
-        this.setState({ people: rand });
-    },
-	
-	// Function to select a person based on the last letter of the last name
+	// Function to select a person based on the last letter(s) of the last name
     play_suffix: function(suffix) {
         suffix = suffix || '';
         // Filter out names which do not match the given suffix, if any,
@@ -158,7 +127,7 @@ var App = React.createClass({
         this.setState({ people: rand });
 	},
 		
-	// Function to select only women
+	// Function to select a person based on first letter(s) of first name if given. Selects only women
 	only_women: function(prefix) {
         prefix = prefix || '';
         // Filter out all those that do not match the given prefix, if any,
@@ -196,7 +165,7 @@ var App = React.createClass({
         this.setState({ people: rand });
     },
 	
-   // Function to select only men
+	// Function to select a person based on first letter(s) of first name if given. Selects only men
 	only_men: function(prefix) {
         prefix = prefix || '';
         // Filter out all those that do not match the given prefix, if any,
