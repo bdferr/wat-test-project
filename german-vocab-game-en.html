@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>German Vocab Game</title>
+	<meta charset="utf-8">
+	<meta name="description" content="This is a German vocabulary app inspired 
+	by the WillowTree name game app. WillowTree provides the name game app 
+	as a test project for potential employees of WillowTree. " />
+	<meta name="description" content="Last modified 10/7/2018" />
+	<meta name="author" content="Brendan Ferreri-Hanberry" />
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<!-- Libraries -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+	<!-- Stylesheet -->
+	<link href="/styles/wta-vocab-game-styles.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link rel="icon" href="favicon-best.ico" type="image/x-icon" />
+	<!-- Extremely Germanic font -->
+    <link href="https://fonts.googleapis.com/css?family=UnifrakturMaguntia" rel="stylesheet">
+	<!-- References to versions of the page in different languages -->
+	<link rel="alternate" href="german-vocab-game-en.html" hreflang="en">
+	<link rel="alternate" href="german-vocab-game-de.html" hreflang="de">
+</head>
+
+<body>
+<div>
+<h1>German Vocab Game</h1>
+</div>
+
+<div class="left">
+    <ul>
+		<li><button>Random word</button></li>
+		<li><button>Masculine only</button></li>
+		<li><button>Feminine only</button></li>
+		<li><button>Neuter only</button></li>
+    </ul>
+</div>
+
+<div class="right">
+    <button><a href="german-vocab-game-de.html" hreflang="de">Deutsch</a></button>
+</div>
+
+<div id="question-wrapper">
+<!-- The appropriate English noun will be inserted when the user clicks a button
+to select one. This will be replaced by success and failure messages in response 
+to user choices from the list of German nouns.  -->
+    <h1 id="prompt">How do you say "lizard" in German?</h1>
+</div>
+<div class="left">
+    <div id="image"><img src="images/lizard.jpg" /></div>
+</div>
+<div class="right">
+    <div id="singular" class="left">
+	<h2>Singular</h2>
+    Five German nouns in the singular will go here.
+	</div>
+	<div id="plural" class="right">
+	<h2>Plural</h2>
+	Five German nouns in the plural will go here.
+	</div>
+</div>
+<footer>&copy; 2018 Brendan Ferreri-Hanberry 
+    | <a href="mailto:skepticism9@gmail.com">Contact me</a> 
+	| <a href="https://bdferr.github.io">Homepage</a>
+</footer>
+</body>
+</html>
