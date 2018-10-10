@@ -1,4 +1,4 @@
-/*Last modified 10/7/2018*/
+/*Last modified 10/9/2018*/
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -11,7 +11,7 @@ a {
 	color: black;
 }
 body {
-	font-family: 'UnifrakturMaguntia', cursive;
+	font-family: "Fira Sans";
     font-size: 1.125em;
     padding: 0em 1.25em 1.25em 1.25em;
 }
@@ -38,6 +38,7 @@ footer a:hover {
 h1 {
 	background-image: linear-gradient(green, lightgreen);
     font-size: 2.375em;
+	font-family: "Cormorant Garamond";
 	padding: 0.625em 0em;
 	margin: auto !important;
     text-align: center!important;
@@ -45,6 +46,7 @@ h1 {
 
 h2 {
     font-size: 1.5em;
+	font-family: "Cormorant Garamond";
     padding: 0.625em 0em;
     margin: auto;
 	text-align: center;
