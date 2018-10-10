@@ -17,8 +17,10 @@ body {
 }
 button {
 	margin: 0.313em;
+	padding: 0.4em;
+	border-radius: 1em;
 	color: black;
-	background-image: linear-gradient(green, lightgreen);
+	background-color: lightgreen;
 	border-color: green;
 }
 div {
