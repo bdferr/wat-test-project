@@ -231,21 +231,16 @@ var App = React.createClass({
         return (
             <div>
     			<div ><h1 id="page-heading" >Gioco a Nomi di WillowTree</h1></div>
-                <div className="inline-button" onClick={this.single_gender}> <button type="button">Nome casuale</button> </div>
 				<div className="right-button"> 
-					<ul>
-						<li><button><a href="wta-app-it.html" hrefLang="it">Italiano</a></button></li>
-						<li><button><a href="wta-app-de.html" hrefLang="de">Deutsch</a></button></li>
-						<li><button><a href="wta-app1.html" hrefLang="en">English</a></button></li>
-					</ul>
+					<div className="inline-button"><button type="button"><a href="wta-app-it.html" hrefLang="it">Italiano</a></button></div>
+					<div className="inline-button"><button type="button"><a href="wta-app-de.html" hrefLang="de">Deutsch</a></button></div>
+					<div className="inline-button"><button type="button"><a href="wta-app1.html" hrefLang="en">English</a></button></div>
 				</div>
-				<br />
-    			<div className="inline-button clear" onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Nome che inizia con A</button> </div>  
+                <div className="inline-button clear" onClick={this.single_gender}> <button type="button">Nome casuale</button> </div>
+    			<div className="inline-button" onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Nome che inizia con A</button> </div>  
 				<div className="inline-button" onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Nome che inizia con M</button> </div>
-				<br />
 				<div className="inline-button" onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Nome che finisce con N</button> </div>
 				<div className="inline-button" onClick={_.partial(this.play_suffix, 's')}> <button type="button">Nome che finisce con S</button> </div>
-				<br />
 				<div className="inline-button" onClick={_.partial(this.only_women)}> <button type="button">Solo donne</button> </div>
 			    <div className="inline-button" onClick={_.partial(this.only_men)}> <button type="button">Solo uomini</button> </div>
                 {game}
