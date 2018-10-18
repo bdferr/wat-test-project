@@ -6,8 +6,8 @@
 
 body {
 	font-family: 'UnifrakturMaguntia', cursive;
-    font-size: 16px;
-    padding: 20px;
+	font-size: 20px;
+	padding: 20px;
 }
 
 button {
@@ -27,9 +27,18 @@ a {
 #page-heading {
 	font-size: 38px;
 	text-align: center!important;
-	padding: 10px;
+	padding: 20px;
 }
 
+footer {
+	clear: both;
+	background-image: linear-gradient(green, lightgreen);
+	padding: 0.625em;
+	font-size: 20px;
+}
+footer a:hover {
+	color: blue !important;
+}
 h1 {
     font-size: 32px;
 	background-image: linear-gradient(green, lightgreen);
