@@ -5,8 +5,7 @@
 }
 
 body {
-	font-family: 'UnifrakturMaguntia', cursive;
-	font-size: 20px;
+	font-family: "Cormorant Garamond", serif;
 	padding: 20px;
 }
 
@@ -35,8 +34,10 @@ footer {
 	background-image: linear-gradient(green, lightgreen);
 	padding: 0.625em;
 	font-size: 20px;
+	font-family: serif;
 }
 footer a:hover {
+	text-decoration: none !important;
 	color: blue !important;
 }
 h1 {
@@ -98,10 +99,6 @@ ul {
     bottom: 10px;
     left: 0;
     right: 0;
-}
-
-.german {
-	font-family: 'UnifrakturMaguntia' !important, cursive;
 }
 
 .hidden h2 {
