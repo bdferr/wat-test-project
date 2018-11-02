@@ -22,7 +22,7 @@ My own ideas, already implemented, are here:
 
 10. Exclude duplicates. 
 
-11. Select only women or only men.
+11. Implement a button to select only women and another to select only men.
 
 12. Choose a set of either all women or all men; a coin toss will make both equally likely.
 
