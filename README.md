@@ -26,7 +26,7 @@ My own ideas, already implemented, are here:
 
 12. Choose a set of either all women or all men; a coin toss will make both equally likely.
 
-13. Create a German version and let the user switch back and forth between the two.
+13. Create German and Italian versions and let the user switch back and forth between the two.
 
 ## Option 2
 
