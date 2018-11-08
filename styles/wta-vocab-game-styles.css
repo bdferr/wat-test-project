@@ -29,6 +29,7 @@ div {
 
 div.word:hover {
 	border: 2px solid blue !important;
+	border-radius: 1em;
 }
 
 footer {
