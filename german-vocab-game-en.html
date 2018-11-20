@@ -6,12 +6,12 @@
 	<meta name="description" content="This is a German vocabulary app inspired 
 	by the WillowTree name game app. WillowTree provides the name game app 
 	as a test project for potential employees of WillowTree. " />
-	<meta name="description" content="Last modified 10/15/2018" />
+	<meta name="description" content="Last modified 11/19/2018" />
 	<meta name="author" content="Brendan Ferreri-Hanberry" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<!-- Libraries -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
 	<!-- Stylesheet -->
 	<link href="styles/wta-vocab-game-styles.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link rel="icon" href="favicon-best.ico" type="image/x-icon" />
@@ -23,8 +23,37 @@
 </head>
 
 <body>
+<script>
+$.get('German-vocab-API1').then(function(data) {
+    result = data;
+	console.log("Data is", typeof data);
+    if (result) {
+	    console.log("Result is", typeof result);
+		result = JSON.parse(result);
+		console.log("Now result is", typeof result);
+		<!--Make a single selection-->
+		selection = _(result.vocab).shuffle().first(1);
+		console.log(selection);
+		//selection = _(options).first(1);
+		//console.log(selection);
+		//node = document.createElement("img");
+		//text = document.createTextNode(selection.image);
+		//node.appendChild(text);
+		//$("#image").appendChild(node);
+		//$("#image img").addClass("testClass");
+		//$("#image img").css("src", selection.image);
+		$("#english-term").html(selection.English);
+		$(".word.first").html(selection.article + " " + selection.German);
+		$(".plural.first").html(selection.plural);
+    }
+    else {
+        $("#prompt").html("Error! Call to API failed.");
+    }
+
+});
+</script>
 <div>
-<h1>German Vocab Game</h1>
+<h1 id="page-heading">German Vocab Game</h1>
 </div>
 
 <div class="left">
@@ -41,32 +70,32 @@
 </div>
 
 <div id="question-wrapper">
-<!-- The appropriate English noun will be inserted when the user clicks a button
-to select one. This will be replaced by success and failure messages in response 
-to user choices from the list of German nouns.  -->
-    <h1 id="prompt">Testing testing 123! How do you say "lizard" in German?</h1>
+<!-- The word after "how do you say" will be replaced with the appropriate English noun.
+ This will be replaced by success and failure messages 
+ in response to user choices from the list of German nouns.  -->
+    <h1 id="prompt">How do you say "<span id="english-term">lizard</span>" in German?</h1>
 </div>
 <div class="left">
-    <div id="image"><img src="images/lizard.jpg" alt="lizard"/></div>
+    <div id="image"><img src="https://i.imgur.com/NFAaK9j.jpg" alt="deer"/></div>
 </div>
 <div class="right">
     <div id="singular" class="left">
 	<h2>Singular</h2>
 	Five German nouns in the singular will go here.
-		<div class="word">Die Echse</div>
-		<div class="word">Das Reh</div>
-		<div class="word">Die Raupe</div>
-		<div class="word">Der Schildkröte</div>
-		<div class="word">Der Bach</div>
+		<div class="word first">die Echse</div>
+		<div class="word">das Reh</div>
+		<div class="word">die Raupe</div>
+		<div class="word">der Schildkröte</div>
+		<div class="word">der Bach</div>
 	</div>
 	<div id="plural" class="right">
 	<h2>Plural</h2>
 	Five German nouns in the plural will go here.
-		<div>Echsen</div>
-		<div>Rehe</div>
-		<div>Raupen</div>
-		<div>Schildkröten</div>
-		<div>Bächer</div>
+		<div class="plural first">Echsen</div>
+		<div class="plural">Rehe</div>
+		<div class="plural">Raupen</div>
+		<div class="plural">Schildkröten</div>
+		<div class="plural">Bächer</div>
 	</div>
 </div>
 <footer>&copy; 2018 Brendan Ferreri-Hanberry 
