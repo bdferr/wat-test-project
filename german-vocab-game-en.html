@@ -6,7 +6,7 @@
 	<meta name="description" content="This is a German vocabulary app inspired 
 	by the WillowTree name game app. WillowTree provides the name game app 
 	as a test project for potential employees of WillowTree. " />
-	<meta name="description" content="Last modified 11/19/2018" />
+	<meta name="description" content="Last modified 11/28/2018" />
 	<meta name="author" content="Brendan Ferreri-Hanberry" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<!-- Libraries -->
@@ -24,33 +24,28 @@
 
 <body>
 <script>
-$.get('German-vocab-API1').then(function(data) {
-    result = data;
-	console.log("Data is", typeof data);
-    if (result) {
-	    console.log("Result is", typeof result);
-		result = JSON.parse(result);
-		console.log("Now result is", typeof result);
-		<!--Make a single selection-->
-		selection = _(result.vocab).shuffle().first(1);
-		console.log(selection);
-		//selection = _(options).first(1);
-		//console.log(selection);
-		//node = document.createElement("img");
-		//text = document.createTextNode(selection.image);
-		//node.appendChild(text);
-		//$("#image").appendChild(node);
-		//$("#image img").addClass("testClass");
-		//$("#image img").css("src", selection.image);
-		$("#english-term").html(selection.English);
-		$(".word.first").html(selection.article + " " + selection.German);
-		$(".plural.first").html(selection.plural);
-    }
-    else {
-        $("#prompt").html("Error! Call to API failed.");
-    }
-
-});
+var newimage = function(){
+	$.get('German-vocab-API1-text.txt').then(function(data) {
+		result = data;
+		console.log("Data is", typeof data);
+		if (result) {
+			console.log("Result is", typeof result);
+			result = JSON.parse(result);
+			console.log("Now result is", typeof result);
+			<!--Make a single selection-->
+			selection = _(result.vocab).shuffle().first(1);
+			console.log(selection);
+			$("#image img").attr("src", selection.image).attr("alt", selection.English);
+			$("#english-term").html(selection.English);
+			$(".word.first").html(selection.article + " " + selection.German);
+			$(".plural.first").html(selection.plural);
+		}
+		else {
+			$("#prompt").html("Error! Call to API failed.");
+		}
+	})
+};
+$(document).ready(newimage);
 </script>
 <div>
 <h1 id="page-heading">German Vocab Game</h1>
@@ -58,7 +53,7 @@ $.get('German-vocab-API1').then(function(data) {
 
 <div class="left">
     <ul>
-		<li><button><a href="german-vocab-game-en.html">Random word</a></button></li>
+		<li><button onclick="newimage()">Random word</a></button></li>
 		<li><button>Masculine only</button></li>
 		<li><button>Feminine only</button></li>
 		<li><button>Neuter only</button></li>
@@ -73,7 +68,7 @@ $.get('German-vocab-API1').then(function(data) {
 <!-- The word after "how do you say" will be replaced with the appropriate English noun.
  This will be replaced by success and failure messages 
  in response to user choices from the list of German nouns.  -->
-    <h1 id="prompt">How do you say "<span id="english-term">lizard</span>" in German?</h1>
+    <h1 id="prompt">How do you say "<span id="english-term">deer</span>" in German?</h1>
 </div>
 <div class="left">
     <div id="image"><img src="https://i.imgur.com/NFAaK9j.jpg" alt="deer"/></div>
