@@ -1,4 +1,4 @@
-/*Last modified 11/8/2018*/
+/*Last modified 11/25/2018*/
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -30,6 +30,7 @@ div {
 div.word:hover {
 	border: 2px solid blue !important;
 	border-radius: 1em;
+	background-color: lightblue;
 }
 
 footer {
