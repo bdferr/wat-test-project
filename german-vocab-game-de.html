@@ -24,26 +24,28 @@
 
 <body>
 <script>
-$.get('German-vocab-API1-text.txt').then(function(data) {
-    result = data;
-	console.log("Data is", typeof data);
-    if (result) {
-	    console.log("Result is", typeof result);
-		result = JSON.parse(result);
-		console.log("Now result is", typeof result);
-		<!--Make a single selection-->
-		selection = _(result.vocab).shuffle().first(1);
-		console.log(selection);
-		$("#image img").attr("src", selection.image).attr("alt", selection.English);
-		$("#english-term").html(selection.English);
-		$(".word.first").html(selection.article + " " + selection.German);
-		$(".plural.first").html(selection.plural);
-    }
-    else {
-        $("#prompt").html("Error! Call to API failed.");
-    }
-
-});
+var newimage = function(){
+	$.get('German-vocab-API1-text.txt').then(function(data) {
+		result = data;
+		console.log("Data is", typeof data);
+		if (result) {
+			console.log("Result is", typeof result);
+			result = JSON.parse(result);
+			console.log("Now result is", typeof result);
+			<!--Make a single selection-->
+			selection = _(result.vocab).shuffle().first(1);
+			console.log(selection);
+			$("#image img").attr("src", selection.image).attr("alt", selection.English);
+			$("#english-term").html(selection.English);
+			$(".word.first").html(selection.article + " " + selection.German);
+			$(".plural.first").html(selection.plural);
+		}
+		else {
+			$("#prompt").html("Error! Call to API failed.");
+		}
+	})
+};
+$(document).ready(newimage);
 </script>
 <div>
 <h1 id="page-heading">Deutsches Vokabel-Spiel</h1>
@@ -51,7 +53,7 @@ $.get('German-vocab-API1-text.txt').then(function(data) {
 
 <div class="left">
     <ul>
-		<li><button><a href="german-vocab-game-de.html">Zufälliges Wort</a></button></li>
+		<li><button onclick="newimage()">Zufälliges Wort</button></li>
 		<li><button>Nur männlich</button></li>
 		<li><button>Nur weiblich</button></li>
 		<li><button>Nur sächlich</button></li>
