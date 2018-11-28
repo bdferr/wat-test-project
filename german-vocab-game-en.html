@@ -34,7 +34,7 @@ $.get('German-vocab-API1-text.txt').then(function(data) {
 		<!--Make a single selection-->
 		selection = _(result.vocab).shuffle().first(1);
 		console.log(selection);
-		$("#image img").attr("src", selection.image);
+		$("#image img").attr("src", selection.image).attr("alt", selection.English);
 		$("#english-term").html(selection.English);
 		$(".word.first").html(selection.article + " " + selection.German);
 		$(".plural.first").html(selection.plural);
