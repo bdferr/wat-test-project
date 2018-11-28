@@ -32,7 +32,8 @@ My own ideas, already implemented in wta-app1.html, wta-app-de.html and wta-app-
 
 12. Choose a set of either all women or all men; a coin toss will make both equally likely.
 
-13. Create a German and an Italian version and let the user switch back and forth between them.
+
+13. Create German and Italian versions and let the user switch back and forth between them.
 
 ## Option 2
 
