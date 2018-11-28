@@ -1,6 +1,12 @@
-# The Namegame
+# Namegame App
 
-Learning your coworkers names while starting a new job can be very useful. Your test project is to make it happen! We have a simple version hosted at [https://wta-namegame.herokuapp.com/](https://wta-namegame.herokuapp.com/) which you can test. The API is located at [https://wta-namegame.herokuapp.com/api/game](https://wta-namegame.herokuapp.com/api/game).
+The original version of this app was provided by WillowTree, an app development company,
+as a test project for potential employees. Much of this readme also consists
+of the original instructions from WillowTree.
+
+Learning your coworkers names while starting a new job can be very useful. Your test project is to make it happen! We have a simple version 
+hosted at [https://wta-namegame.herokuapp.com/](https://wta-namegame.herokuapp.com/) which you can test. 
+The API is located at [https://wta-namegame.herokuapp.com/api/game](https://wta-namegame.herokuapp.com/api/game).
 
 ## Option 1
 
@@ -14,7 +20,7 @@ Present the user with five faces and ask them to identify the listed name. This 
 6. Matt Mode. Roughly 90% of our co-workers are named Matt, so add a challenge mode where you only present the users with a Matt. **This was already done.**
 7. Hint mode. As people wait, faces disappear until only the correct one is left.
 
-My own ideas, already implemented, are here:
+My own ideas, already implemented in wta-app1.html, wta-app-de.html and wta-app-it.html, are here:
 
 8. Sort people by the last letter of their last names.
 
@@ -22,11 +28,11 @@ My own ideas, already implemented, are here:
 
 10. Exclude duplicates. 
 
-11. Select only women or only men.
+11. Implement a button to select only women and another to select only men.
 
 12. Choose a set of either all women or all men; a coin toss will make both equally likely.
 
-13. Create a German version and let the user switch back and forth between the two.
+13. Create a German and an Italian version and let the user switch back and forth between them.
 
 ## Option 2
 
@@ -37,3 +43,21 @@ Feel like taking the path less trodden? Do you know a better way to learn faces 
 We have provided you with a few files to get you started. Feel free to discard everything and start from scratch. You may use any framework or library you like.
 
 If you need a simple http server, we recommend [http-server](https://www.npmjs.org/package/http-server).
+
+## German Vocab App
+
+My efforts to create a new app from scratch are still in progress, but the intention
+is to help the user practice German vocabulary. A script will make an AJAX call to a JSON file 
+and make random selections, displaying an English term, a corresponding image,
+and five German terms for the user to select from, one of which corresponds to the English word. 
+Clicking an option will yield a message indicating whether the user has selected the correct term.
+
+The app should also feature buttons to provide terms with only a particular gender --
+German nouns are either masculine, feminine, or neuter.
+
+I hope to implement a scoring system in line with item 2 under option 1 above.
+At a minimum this would keep track of the number of correct and incorrect guesses
+and calculate the percentages of the total which each represents.
+
+The relevant HTML files are german-vocab-game-en.html and german-vocab-game-de.html. 
+Currently this project uses the Lodash Javascript library.
