@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="The WillowTree name game app is a test for potential employees of WillowTree. This is my own version of it." />
 	<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
-	<meta name="dcterms.modified" content="2019-5-23" />
+	<meta name="dcterms.modified" content="2019-6-9" />
 	<meta name="author" content="Brendan Ferreri-Hanberry" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<link rel="alternate" href="wta-app1.html" hrefLang="en">
@@ -78,11 +78,19 @@ var Game = React.createClass({
 
         return (
             <div>
-                <h1 id="question-wrapper">Who is {selectedFace.firstName + ' ' + selectedFace.lastName}?</h1>
+                <h1 id="question-wrapper"><span className="english">Who is</span>
+				<span className="deutsch">Wer heißt</span>
+				<span className="italiano">Chi si chiama</span> {selectedFace.firstName + ' ' + selectedFace.lastName}?</h1>
                 <div>{faces}</div>
-				<footer>&copy; 2018 Brendan Ferreri-Hanberry 
-                | <a href="mailto:skepticism9@gmail.com">Contact me</a>&nbsp;
-				| <a href="https://bdferr.github.io">Homepage</a>
+				<footer>&copy; 2019 Brendan Ferreri-Hanberry 
+                | <a href="mailto:skepticism9@gmail.com"><span className="english">Contact me</span>
+				<span className="deutsch">Kontakt</span>
+				<span className="italiano">Scrivetemi</span>
+				</a>&nbsp;
+				| <a href="https://bdferr.github.io"><span className="english">Homepage</span>
+				<span className="deutsch">Startseite</span>
+				<span className="italiano">Homepage</span>
+				</a>
                 </footer>
             </div>
         );
@@ -225,7 +233,23 @@ var App = React.createClass({
 		}
 		
 	},
-	
+	change_language: function(lang) {
+		if (lang == "en") {
+			$(".deutsch").hide();
+			$(".italiano").hide();
+			$(".english").show();
+		}
+		else if (lang == "de") {
+			$(".english").hide();
+			$(".italiano").hide()
+			$(".deutsch").show();
+		}
+		else {
+			$(".english").hide();
+			$(".deutsch").hide();
+			$(".italiano").show();
+		}
+    },
 	// Render the buttons and, if a button has been clicked, render the faces
     render: function() {
         var game;
@@ -235,24 +259,48 @@ var App = React.createClass({
 
         return (
             <div>
-    			<div ><h1 id="page-heading" >WillowTree Name Game</h1></div>
+    			<div ><h1 id="page-heading" ><span className="english">WillowTree Name Game</span>
+				<span className="deutsch">Namenspiel von WillowTree</span>
+				<span className="italiano">Gioco a Nomi di WillowTree</span></h1></div>
 				<div className="right-button"> 
-					<div className="inline-button"><button type="button"><a href="wta-app1.html" hrefLang="en">English</a></button></div>
-					<div className="inline-button"><button type="button"><a href="wta-app-de.html" hrefLang="de">Deutsch</a></button></div>
-					<div className="inline-button"><button type="button"><a href="wta-app-it.html" hrefLang="it">Italiano</a></button></div>
+					<div className="inline-button"><button type="button" onClick={_.partial(this.change_language, 'en')}>English</button></div>
+					<div className="inline-button"><button type="button" onClick={_.partial(this.change_language, 'de')}>Deutsch</button></div>
+					<div className="inline-button"><button type="button" onClick={_.partial(this.change_language, 'it')}>Italiano</button></div>
 				</div>
-                <div className="inline-button clear" onClick={this.single_gender}> <button type="button">Random Name</button> </div>
-    			<div className="inline-button" onClick={_.partial(this.single_gender, 'a')}> <button type="button" >Name Starting with A</button> </div>  
-				<div className="inline-button" onClick={_.partial(this.single_gender, 'm')}> <button type="button" >Name Starting with M</button> </div>
-				<div className="inline-button" onClick={_.partial(this.play_suffix, 'n')}> <button type="button">Name Ending with N</button> </div>
-				<div className="inline-button" onClick={_.partial(this.play_suffix, 's')}> <button type="button">Name Ending with S</button> </div>
-				<div className="inline-button" onClick={_.partial(this.only_women)}> <button type="button">Only Women</button> </div>
-			    <div className="inline-button" onClick={_.partial(this.only_men)}> <button type="button">Only Men</button> </div>
+                <div className="inline-button clear" onClick={this.single_gender}> <button type="button"><span className="english">Random Name</span>
+				<span className="deutsch">Zufälliger Name</span>
+				<span className="italiano">Nome casuale</span>
+				</button> </div>
+    			<div className="inline-button" onClick={_.partial(this.single_gender, 'a')}> <button type="button">
+				<span className="english">Name Starting with A</span>
+				<span className="deutsch">Mit A beginnender Name</span>
+				<span className="italiano">Nome che inizia con A</span></button> </div>  
+				<div className="inline-button" onClick={_.partial(this.single_gender, 'm')}> <button type="button">
+				<span className="english">Name Starting with M</span>
+				<span className="deutsch">Mit M beginnender Name</span>
+				<span className="italiano">Nome che inizia con M</span></button> </div>
+				<div className="inline-button" onClick={_.partial(this.play_suffix, 'n')}> <button type="button">
+				<span className="english">Name Ending with N</span>
+				<span className="deutsch">Name mit N am Ende</span>
+				<span className="italiano">Nome che finisce con N</span></button> </div>
+				<div className="inline-button" onClick={_.partial(this.play_suffix, 's')}> <button type="button">
+				<span className="english">Name Ending with S</span>
+				<span className="deutsch">Name mit S am Ende</span>
+				<span className="italiano">Nome che finisce con S</span></button> </div>
+				<div className="inline-button" onClick={_.partial(this.only_women)}> <button type="button">
+				<span className="english">Only Women</span>
+				<span className="deutsch">Nur Frauen</span>
+				<span className="italiano">Solo donne</span></button> </div>
+			    <div className="inline-button" onClick={_.partial(this.only_men)}> <button type="button">
+				<span className="english">Only Men</span>
+				<span className="deutsch">Nur Männer</span>
+				<span className="italiano">Solo uomini</span></button> </div>
                 {game}
             </div>
         );
     }
 });
+
 
 // Render the app within the app-wrapper div:
 var render = function () {
