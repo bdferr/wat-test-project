@@ -1,28 +1,25 @@
 <!DOCTYPE HTML>
-<html lang="de">
+<html lang="en">
 <head>
-	<title>Deutsches Vokabel-Spiel</title>
+	<title>German Vocab Game</title>
 	<meta charset="utf-8">
 	<meta name="description" content="This is a German vocabulary app inspired 
 	by the WillowTree name game app. WillowTree provides the name game app 
-	as a test project for potential employees of WillowTree. " />
+	as a test project for potential employees."/>
 	<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
-	<meta name="dcterms.modified" content="2019-6-7" />
+	<meta name="dcterms.modified" content="2019-6-8" />
 	<meta name="author" content="Brendan Ferreri-Hanberry" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<!-- Libraries -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
-	<script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
 	<!-- Stylesheet -->
 	<link href="styles/wta-vocab-game-styles.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link rel="icon" href="favicon-best.ico" type="image/x-icon" />
 	<!-- Google font pair -->
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700i|Fira+Sans" rel="stylesheet">
-	<!-- References to versions of the page in different languages -->
-	<link rel="alternate" href="german-vocab-game-en.html" hreflang="en">
-	<link rel="alternate" href="german-vocab-game-de.html" hreflang="de">
 </head>
 
 <body>
@@ -86,30 +83,51 @@ var genderImage = function(gender){
 		}
 	})
 };
+var toggleLanguage = function() {
+	if ($(".deutsch").css("display") == "none") {
+		$(".deutsch").show();
+		$(".english").hide();
+	}
+	else {
+		$(".deutsch").hide();
+		$(".english").show();
+	}
+};
 $(document).ready(newImage);
+$(document).ready(function() {
+    $(".deutsch").hide();
+});
 </script>
 <div>
-<h1 id="page-heading">Deutsches Vokabel-Spiel</h1>
+<h1 id="page-heading"><span class="english">German Vocab Game</span>
+<span class="deutsch">Deutsches Vokabel-Spiel</span></h1>
 </div>
 
 <div class="left">
     <ul>
-		<li><button onclick="newImage()">Zufälliges Wort</a></button></li>
-		<li><button onclick="genderImage('masculine')"}>Nur männlich</button></li>
-		<li><button onclick="genderImage('feminine')">Nur weiblich</button></li>
-		<li><button onclick="genderImage('neuter')">Nur sächlich</button></li>
+		<li><button onclick="newImage()"><span class="english">Random word</span>
+		<span class="deutsch">Zufälliges Wort</span></a></button></li>
+		<li><button onclick="genderImage('masculine')"}><span class="english">Masculine only</span>
+		<span class="deutsch">Nur männlich</span></button></li>
+		<li><button onclick="genderImage('feminine')"><span class="english">Feminine only</span>
+		<span class="deutsch">Nur weiblich</span></button></li>
+		<li><button onclick="genderImage('neuter')"><span class="english">Neuter only</span>
+		<span class="deutsch">Nur sächlich</span></button></li>
     </ul>
 </div>
 
 <div class="right">
-    <button><a href="german-vocab-game-en.html" hreflang="en">English</a></button>
+    <button id="toggle_button" onclick="toggleLanguage()"><span class="english">Deutsch</span><span class="deutsch">English</span></button>
 </div>
 
 <div id="question-wrapper">
 <!-- The word after "how do you say" will be replaced with the appropriate English noun.
  This will be replaced by success and failure messages 
  in response to user choices from the list of German nouns.  -->
-    <h1>Wie sagt man "<span id="english-term">cat</span>" auf Deutsch?</h1>
+    <h1 id="prompt"><span class="english">How do you say</span>
+	<span class="deutsch">Wie sagt man</span> "<span id="english-term">cat</span>" 
+	<span class="english">in German?</span>
+	<span class="deutsch">auf Deutsch?</span></h1>
 </div>
 <div class="left">
     <div id="image"><img src="https://i.imgur.com/WRM5YzU.jpg" alt="cat"/></div>
@@ -117,7 +135,8 @@ $(document).ready(newImage);
 <div class="right">
     <div id="singular" class="left">
 	<h2>Singular</h2>
-    Fünf deutsche Substantive im Singular stehen hier.
+	<span class="english">Five German nouns in the singular will go here.</span>
+	<span class="deutsch">Fünf deutsche Substantive im Singular stehen hier.</span>
 		<div class="word first">die Katze</div>
 		<div class="word">das Reh</div>
 		<div class="word">die Raupe</div>
@@ -126,7 +145,8 @@ $(document).ready(newImage);
 	</div>
 	<div id="plural" class="right">
 	<h2>Plural</h2>
-	Fünf deutsche Substantive im Plural stehen hier.
+	<span class="english">Five German nouns in the plural will go here.</span>
+	<span class="deutsch">Fünf deutsche Substantive im Plural stehen hier.</span>
 		<div class="plural first">Katzen</div>
 		<div class="plural">Rehe</div>
 		<div class="plural">Raupen</div>
@@ -135,8 +155,8 @@ $(document).ready(newImage);
 	</div>
 </div>
 <footer>&copy; 2019 Brendan Ferreri-Hanberry 
-    | <a href="mailto:brendanfh@protonmail.com">Kontakt</a> 
-	| <a href="https://bdferr.github.io">Startseite</a>
+    | <a href="mailto:brendanfh@protonmail.com"><span class="english">Contact me</span><span class="deutsch">Kontakt</span></a> 
+	| <a href="https://bdferr.github.io"><span class="english">Homepage</span><span class="deutsch">Startseite</span></a>
 </footer>
 </body>
 </html>
