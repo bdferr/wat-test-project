@@ -83,7 +83,7 @@ var Game = React.createClass({
 				<span className="italiano">Chi si chiama</span> {selectedFace.firstName + ' ' + selectedFace.lastName}?</h1>
                 <div>{faces}</div>
 				<footer>&copy; 2019 Brendan Ferreri-Hanberry 
-                | <a href="mailto:skepticism9@gmail.com"><span className="english">Contact me</span>
+                | <a href="mailto:brendanfh@protonmail.com"><span className="english">Contact me</span>
 				<span className="deutsch">Kontakt</span>
 				<span className="italiano">Scrivetemi</span>
 				</a>&nbsp;
@@ -99,7 +99,7 @@ var Game = React.createClass({
 
 // This is the set of people to be excluded who do not have a headshot or are duplicates
 var excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", "kendra-schmid", 
-					"michael-ross", "rebekkah-brown", "roger-casey", "scott-wolfson"];
+					"michael-ross", "chloe-norris", "rebekkah-brown", "roger-casey", "scott-wolfson", "stern", "Taylor Erwin"];
 
 // Initialize the app with an empty list of employees; this is empty until the user clicks a button
 var App = React.createClass({
@@ -153,13 +153,13 @@ var App = React.createClass({
                             return reg.test(p.firstName);
                         })
 						.filter(function(p) {
-							var women = ["abby-cook", "pizzimenti", "midland", "welk", "carly-wilson", "christian", "connor", 
-							"degroof", "erwin", "angela-batten", "anne-fry", "ashley-joost", "ayesha-zafar", "bijal-patel", 
-							"caroline-hompe", "cassandra-sharpe", "charlotte-de wolfe", "chloe-norris", "christine-bryant-ryback", 
-							"christy-phillips", "meyers", "dayne-mauney", "rundell", "elizabeth-batman", "emily-seibert", 
-							"erika-cober", "heather-raines", "hillary-pitts", "julia-swenson", "karen-wei", "schmid", 
-							"mahreen-azam", "bulka", "meghan-macera", "seibert", "morgan-edmonds", "soo rin-park", "tatyana-casino", 
-							"tesceline-tabilas", "wickenkamp", "whitney-french"];
+						var women = ["abby-cook", "pizzimenti", "midland", "welk", "worrell", "carly-wilson", "christian", "simmons", "connor", 
+						"degroof", "angela-batten", "anne-fry", "ashley-joost", "ayesha-zafar", "bijal-patel", "caroline-hompe", 
+						"cassandra-sharpe", "charlotte-de wolfe", "norris", "christine-bryant-ryback", "christy-phillips", 
+						"meyers", "dayne-mauney", "rundell", "elizabeth-batman", "emily-seibert", "erika-cober", "largen",
+						"heather-raines", "hillary-pitts", "julia-swenson", "karen-wei", "kendra-schmid", "schmid", "kussman", "mahreen-azam", 
+						"bulka", "meghan-macera", "seibert", "morgan-edmonds", "rebekkah-brown", "soo rin-park", "tatyana-casino", 
+						"erwin", "tesceline-tabilas", "wickenkamp", "whitney-french"];
 							return women.includes(p.slug);
 						})
 						.filter(function(p) {
@@ -192,13 +192,13 @@ var App = React.createClass({
                             return reg.test(p.firstName);
                         })
 						.filter(function(p) {
-						var women = ["abby-cook", "pizzimenti", "midland", "welk", "carly-wilson", "christian", "connor", 
+						var women = ["abby-cook", "pizzimenti", "midland", "welk", "worrell", "carly-wilson", "christian", "simmons", "connor", 
 						"degroof", "angela-batten", "anne-fry", "ashley-joost", "ayesha-zafar", "bijal-patel", "caroline-hompe", 
-						"cassandra-sharpe", "charlotte-de wolfe", "chloe-norris", "christine-bryant-ryback", "christy-phillips", 
-						"meyers", "dayne-mauney", "rundell", "elizabeth-batman", "emily-seibert", "erika-cober", "erwin", 
-						"heather-raines", "hillary-pitts", "julia-swenson", "karen-wei", "kendra-schmid", "schmid", "mahreen-azam", 
+						"cassandra-sharpe", "charlotte-de wolfe", "chloe-norris", "norris", "christine-bryant-ryback", "christy-phillips", 
+						"meyers", "dayne-mauney", "rundell", "elizabeth-batman", "emily-seibert", "erika-cober", "largen",
+						"heather-raines", "hillary-pitts", "julia-swenson", "karen-wei", "kendra-schmid", "schmid", "kussman", "mahreen-azam", 
 						"bulka", "meghan-macera", "seibert", "morgan-edmonds", "rebekkah-brown", "soo rin-park", "tatyana-casino", 
-						"tesceline-tabilas", "wickenkamp", "whitney-french"];
+						"erwin", "Taylor Erwin", "tesceline-tabilas", "wickenkamp", "whitney-french"];
 						return !women.includes(p.slug);
 						})
 						.filter(function(p) {
@@ -206,7 +206,7 @@ var App = React.createClass({
 						})
 					    .filter(function(p) {
 							excluded = ["andrew-morgan", "bryant", "jack-ross", "daniel-willowtree", 
-							"michael-ross", "roger-casey", "scott-wolfson"];
+							"michael-ross", "roger-casey", "scott-wolfson", "stern"];
 							return !excluded.includes(p.slug);
 						})
                         .each(function(p) {
